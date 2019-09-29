@@ -135,5 +135,8 @@
 			"revisionTime": "2018-11-15T11:05:04Z"
 		}
 	],
-	"rootPath": "github.com/romanDj/dndClient"
+	"rootPath": "github.com/romanDj/dndClient",
+	"heroku": {
+		"goVersion": "go1.13"
+	}
 }
