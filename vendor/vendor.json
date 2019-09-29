@@ -137,6 +137,7 @@
 	],
 	"rootPath": "github.com/romanDj/dndClient",
 	"heroku": {
-		"goVersion": "go1.13"
+		"goVersion": "go1.13",
+		"install" : [ "./..." ]
 	}
 }
