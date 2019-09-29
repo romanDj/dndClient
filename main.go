@@ -32,7 +32,7 @@ func main() {
 func initRouting() {
 	var port string
 	if os.Getenv("PORT") == "" {
-		port = ":3000"
+		port = "8000"
 	} else {
 		port = os.Getenv("PORT")
 	}
@@ -40,7 +40,7 @@ func initRouting() {
 	fmt.Println("/n Used port : " + port)
 
 	app.server = &http.Server{
-		Addr:         port,
+		Addr:         ":" + port,
 		Handler:      routerHandler(),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
