@@ -1,7 +1,19 @@
 {
 	"comment": "",
+	"heroku": {
+		"goVersion": "go1.13",
+		"install": [
+			"./..."
+		]
+	},
 	"ignore": "test",
 	"package": [
+		{
+			"checksumSHA1": "0cytTxS0qPVjtknc7OrfuNmxvBE=",
+			"path": "github.com/dgrijalva/jwt-go",
+			"revision": "5e25c22bd5d6de03265bbe5462dcd162f85046f6",
+			"revisionTime": "2019-06-20T18:01:02Z"
+		},
 		{
 			"checksumSHA1": "mKall8xfKBPL/a5Ji//i968rLsY=",
 			"path": "github.com/gin-contrib/sse",
@@ -57,10 +69,16 @@
 			"revisionTime": "2019-09-20T23:43:18Z"
 		},
 		{
-			"checksumSHA1": "0QUJ9pWZsI9k6X47medsyGbP1xs=",
+			"checksumSHA1": "zj2hR6Km1xoclrUYmB9STRu7krk=",
 			"path": "github.com/jinzhu/gorm",
-			"revision": "81c17a7e2529c59efc4e74c5b32c1fb71fb12fa2",
-			"revisionTime": "2019-09-25T11:22:43Z"
+			"revision": "1bca5dbdd9e8913c2fb825f2d824ed6b0435c65d",
+			"revisionTime": "2019-10-08T10:04:52Z"
+		},
+		{
+			"checksumSHA1": "YBNroGKEItNe0bENTEKbx71DyGQ=",
+			"path": "github.com/jinzhu/gorm/dialects/sqlite",
+			"revision": "1bca5dbdd9e8913c2fb825f2d824ed6b0435c65d",
+			"revisionTime": "2019-10-08T10:04:52Z"
 		},
 		{
 			"checksumSHA1": "Hf2EdZUOQfrn+iW34gg2/0GHo94=",
@@ -85,6 +103,12 @@
 			"path": "github.com/mattn/go-isatty",
 			"revision": "bf9a1dea1961e1d831824fb135332bfb8c10e8b8",
 			"revisionTime": "2019-08-18T12:36:53Z"
+		},
+		{
+			"checksumSHA1": "DgnAxWpq10psry8C5bYlXoT0e+w=",
+			"path": "github.com/mattn/go-sqlite3",
+			"revision": "3f45aefa8dc8bbdd97619dd2765f864972f3310e",
+			"revisionTime": "2019-10-08T08:38:25Z"
 		},
 		{
 			"checksumSHA1": "R7UwDjqiaLRoaEanrANwPOfbgN4=",
@@ -135,9 +159,5 @@
 			"revisionTime": "2018-11-15T11:05:04Z"
 		}
 	],
-	"rootPath": "github.com/romanDj/dndClient",
-	"heroku": {
-		"goVersion": "go1.13",
-		"install" : [ "./..." ]
-	}
+	"rootPath": "github.com/romanDj/dndClient"
 }
