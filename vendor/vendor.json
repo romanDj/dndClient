@@ -147,6 +147,12 @@
 			"revisionTime": "2019-05-07T11:43:05Z"
 		},
 		{
+			"checksumSHA1": "q190bL03wQok3wVwYmMub2XhOiU=",
+			"path": "gopkg.in/go-playground/validator.v8",
+			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
+			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
 			"checksumSHA1": "P7A15IT+qS+z2jL3z4Ttv7utpsI=",
 			"path": "gopkg.in/go-playground/validator.v9",
 			"revision": "556b9da3c05f2a935bc086fb5a0bb55dd8112d2d",
