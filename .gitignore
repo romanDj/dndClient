@@ -1,4 +1,6 @@
 /.idea
 
+client/node_modules
+
 vendor/*
 !vendor/vendor.json
