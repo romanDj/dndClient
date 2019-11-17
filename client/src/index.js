@@ -1,21 +1,25 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import ReactDOM from 'react-dom';
-import {ConnectedRouter} from 'connected-react-router';
-import {Route, Switch} from 'react-router';
-import { store, history} from './store';
-import App from './components/App';
-//стили
-import './index.css';
-import 'antd/dist/antd.css';
+import "./styles/main.scss";
+import "@fortawesome/fontawesome-free/css/all.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import Button from "./ui/Button";
+import Navigation from "./components/Navigation";
 
+/**
+ * ui kit
+ */
 ReactDOM.render((
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <Switch>
-                <Route path="/" component={App}/>
-            </Switch>
-        </ConnectedRouter>
-    </Provider>
+    <>
+        <Navigation>
+                <div className="ui_card">
+                    <div className="ui_kit">
+                        <p>Hello!</p>
+                        <Button text="Basic" type="basic" click={()=>{
+                            console.log("click callback");}}/>
+                        <Button text="Secondary" type="secondary" click={()=>{
+                            console.log("click callback");}}/>
+                    </div>
+                </div>
+        </Navigation>
+    </>
 ), document.getElementById('root'));
-

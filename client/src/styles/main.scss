@@ -1,0 +1,70 @@
+//Главный файл стилей
+@import "utils";
+@import "Variable";
+@import "Fonts";
+
+@include reset();
+
+/* Параметры тени */
+@mixin shadow($size){
+    @if $size == smalle{
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }@else if $size == middle{
+        box-shadow: 0 0 7px rgba(0,0,0,0.2);
+    }@else if $size == big {
+        box-shadow: 0 0 9px rgba(0,0,0,0.4);
+    }
+}
+
+*{
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+
+#root{
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    & .ui_sidebar_content{
+      flex-grow: 1;
+    }
+}
+
+body{
+    background: rgba(128, 99, 194, 0.1);
+}
+
+.ui_kit{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & *{
+        margin: 5px;
+    }
+}
+
+.ui_content{
+    display: flex;
+    -webkit-user-select: none;
+    user-select: none;
+
+    .ui_card{
+        flex-grow: 1;
+        margin: 5px;
+        width: inherit;
+        height: inherit;
+    }
+}
+
+//Подключение стилей компонентов
+@import "Icons";
+@import "Button";
+@import "Navigation";
+@import "Card";
+
+
+
+

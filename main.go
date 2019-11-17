@@ -88,10 +88,10 @@ func routerHandler() http.Handler {
 		dir, file := path.Split(c.Request.RequestURI)
 		ext := filepath.Ext(file)
 		if file == "" || ext == "" {
-			c.File("./client/build/index.html")
+			c.File("./client/dist/index.html")
 		} else {
 			// strings.Split(file, "?")
-			c.File("./client/build/" + path.Join(dir, file))
+			c.File("./client/dist/" + path.Join(dir, file))
 		}
 	})
 	return e

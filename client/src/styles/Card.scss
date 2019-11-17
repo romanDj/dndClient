@@ -1,0 +1,5 @@
+.ui_card{
+  @include shadow(middle);
+  border-radius: 4px;
+  background: white;
+}
