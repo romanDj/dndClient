@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import logo from "../statics/images/icon_ico.png";
 
+
 //верхняя навигационная панель
 function Navigation(props) {
     const [profileMenu, setProfileMenu] = useState(false);
@@ -46,7 +47,7 @@ function Navigation(props) {
             </div>
 
             <div className="ui_content">
-                {props.children}
+                    {props.children}
             </div>
         </div>
 

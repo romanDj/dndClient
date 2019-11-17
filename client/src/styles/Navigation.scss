@@ -33,6 +33,7 @@
 .ui_submenu {
   &-open {
     position: absolute;
+    z-index: 100;
     color: $color-secondary-2-3;
     font-weight: bold;
     background:lighten($color-secondary-2-1, 20%);
