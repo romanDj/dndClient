@@ -5,7 +5,7 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: {main: './src/index.js'},
@@ -14,12 +14,31 @@ module.exports = {
         filename: 'js/' + (process.env.production ? '[name].[chunkhash].js' : '[name].[hash].js')
     },
     optimization: {
+        moduleIds: 'hashed',
+        runtimeChunk: 'single',
+        minimize: true,
         minimizer: [
             new OptimizeCSSAssetsPlugin({}),
-            new UglifyJsPlugin()
-        ]
+            new TerserPlugin({
+                terserOptions: {
+                    output: {
+                        comments: false,
+                    },
+                },
+                extractComments: false,
+            })
+        ],
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+        },
     },
-    devtool: 'inline-source-map',
+    //devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -83,7 +102,7 @@ module.exports = {
             filename: 'css/style.[contenthash].css',
         }),
         new HtmlWebpackPlugin({
-           // hash: true,
+            // hash: true,
             template: './src/index.html',
             filename: 'index.html'
         }),

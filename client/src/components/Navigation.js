@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import logo from "../statics/images/icon_ico.png";
-
+import {AiOutlineMenu} from "react-icons/ai";
+import {FaEllipsisV} from "react-icons/fa";
+import {IconContext} from "react-icons";
 
 //верхняя навигационная панель
 function Navigation(props) {
@@ -25,29 +27,33 @@ function Navigation(props) {
 
     return <>
         <div className="ui_navbar" onClick={() => (profileMenu === true && setProfileMenu(false))}>
-            <div className="ui_navbar_item" onClick={() => setSideMenu(!sideMenu)}>
-                <i className="fas fa-bars"></i>
-            </div>
+            <IconContext.Provider value={{style: {verticalAlign: 'middle'}}}>
+                <div className="ui_navbar_item" onClick={() => setSideMenu(!sideMenu)}>
+                    <AiOutlineMenu/>
+                </div>
+            </IconContext.Provider>
             <div className="bs_label">
                 <img src={logo} alt="Logo" className="bs_icon"/>
                 <p>Bs client</p>
             </div>
-            <div className="ui_navbar_item">
-                <i className="fas fa-ellipsis-v" onClick={() => setProfileMenu(!profileMenu)}></i>
-                <div className={profileMenu ? "ui_submenu-open" : "ui_submenu-close"}
-                     onClick={() => setProfileMenu(false)}>
-                    {ListItems(navbarItems, "ui_navbar_submenu_item")}
+            <IconContext.Provider value={{style: {verticalAlign: 'middle'}}}>
+                <div className="ui_navbar_item">
+                    <FaEllipsisV onClick={() => setProfileMenu(!profileMenu)}/>
+                    <div className={profileMenu ? "ui_submenu-open" : "ui_submenu-close"}
+                         onClick={() => setProfileMenu(false)}>
+                        {ListItems(navbarItems, "ui_navbar_submenu_item")}
+                    </div>
                 </div>
-            </div>
+            </IconContext.Provider>
         </div>
 
         <div className="ui_sidebar_content" onClick={() => (profileMenu === true && setProfileMenu(false))}>
-            <div className={ sideMenu ? "ui_sidebar" : "ui_sidebar ui_sidebar-close" }>
+            <div className={sideMenu ? "ui_sidebar" : "ui_sidebar ui_sidebar-close"}>
                 {ListItems(sideItems, "ui_sidebar_item", "ui_sidebar_item-select")}
             </div>
 
             <div className="ui_content">
-                    {props.children}
+                {props.children}
             </div>
         </div>
 

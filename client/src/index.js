@@ -1,5 +1,4 @@
 import "./styles/main.scss";
-import "@fortawesome/fontawesome-free/css/all.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import Button from "./ui/Button";

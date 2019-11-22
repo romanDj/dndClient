@@ -1,12 +1,15 @@
 package main
 
 //входной файл сервера
-
 import (
+	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm"
 	"github.com/romanDj/dndClient/common"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"golang.org/x/sync/errgroup"
 	"log"
 	"net/http"
@@ -66,6 +69,45 @@ func initRouting() {
 	}
 }
 
+func GetClient() *mongo.Client {
+	clientOptions := options.Client().ApplyURI("mongodb://heroku_cv76dqrz:c0605jtuo7ldji5v657mt290ls@ds053597.mlab.com:53597/heroku_cv76dqrz")
+	client, err := mongo.NewClient(clientOptions)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = client.Connect(context.Background())
+	if err != nil {
+		log.Fatal(err)
+	}
+	return client
+}
+
+type User struct {
+	Id     string `bson:"_id" json:"id"`
+	Name   string `json:"name"`
+	Login  string `json:"login"`
+	Password string   `json:"password"`
+	Role string   `json:"role"`
+}
+
+func ReturnAllUsers(client *mongo.Client, filter bson.M) []*User {
+	var users []*User
+	collection := client.Database("dnd").Collection("users")
+	cur, err := collection.Find(context.TODO(), filter)
+	if err != nil {
+		log.Fatal("Error on Finding all the documents", err)
+	}
+	for cur.Next(context.TODO()) {
+		var user User
+		err = cur.Decode(&user)
+		if err != nil {
+			log.Fatal("Error on Decoding the document", err)
+		}
+		users = append(users, &user)
+	}
+	return users
+}
+
 //callback c роутерами
 func routerHandler() http.Handler {
 	e := gin.Default()
@@ -80,6 +122,15 @@ func routerHandler() http.Handler {
 				"code":  http.StatusOK,
 				"error": "Welcome Rest API!",
 			},
+		)
+	})
+
+	//запрос к mongoDb
+	e.GET("/mongo", func(c *gin.Context) {
+		users := ReturnAllUsers(GetClient(), bson.M{})
+		c.JSON(
+			http.StatusOK,
+			users,
 		)
 	})
 
