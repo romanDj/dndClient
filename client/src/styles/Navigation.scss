@@ -36,7 +36,7 @@
     z-index: 100;
     color: $color-secondary-2-3;
     font-weight: bold;
-    background:lighten($color-secondary-2-1, 20%);
+    background: lighten($color-secondary-2-1, 20%);
     @include shadow(middle);
     border-radius: 4px;
     margin-top: 9px;
@@ -89,15 +89,55 @@
   flex-direction: row;
   flex-wrap: nowrap;
 
-  & .ui_sidebar{
+  & .ui_sidebar {
     transition: margin-left 300ms;
-    flex-basis: 200px;
+    flex-basis: 220px;
     margin-left: 0;
     flex-shrink: 0;
+    padding: 5px;
+    overflow: hidden;
+
+    &_item {
+      color: gray;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      word-wrap: break-word;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      padding: 6px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      &>p{
+        transition: 2s;
+        opacity: 1;
+      }
+
+      &-select {
+        color: $color-primary-3;
+        background: rgba($color-primary-1, 0.2);
+      }
+    }
   }
 
-  & .ui_sidebar-close{
-    margin-left: -210px;
+  & .ui_sidebar-close {
+    flex-basis: auto;
+
+    & .ui_sidebar_item>p{
+      display: none;
+      opacity: 0;
+    }
+
+    & .ui_sidebar_item>svg{
+      margin-right: 0 !important;
+    }
+
+    @include xs-block() {
+      flex-basis: 220px;
+      margin-left: -230px;
+    }
   }
 
   & .ui_content {
@@ -107,28 +147,6 @@
       flex-shrink: 0;
     }
   }
-}
-
-.ui_sidebar{
-  padding: 5px;
-  overflow: hidden;
-
-  &_item{
-    color: gray;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    word-wrap: break-word;
-    border-radius: 4px;
-    margin-bottom: 4px;
-    padding: 6px;
-
-    &-select{
-      color: $color-primary-3;
-      background: rgba($color-primary-1,  0.2);
-    }
-  }
-
 }
 
 
