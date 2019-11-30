@@ -31,31 +31,33 @@
 }
 
 .ui_submenu {
+  position: absolute;
+  z-index: 100;
+  color: $color-secondary-2-3;
+  font-weight: bold;
+  background: lighten($color-secondary-2-1, 20%);
+  @include shadow(middle);
+  border-radius: 4px;
+  margin-top: 9px;
+  overflow: hidden;
+  right: 4px;
+
   &-open {
-    position: absolute;
-    z-index: 100;
-    color: $color-secondary-2-3;
-    font-weight: bold;
-    background: lighten($color-secondary-2-1, 20%);
-    @include shadow(middle);
-    border-radius: 4px;
-    margin-top: 9px;
-    overflow: hidden;
-    right: 4px;
-
-    .ui_navbar_submenu_item {
-      font-size: 1rem;
-      transition: background 200ms;
-      padding: 6px;
-
-      &:hover {
-        background: rgba($color-secondary-2-1, 1);
-      }
-    }
+    display: block;
   }
 
   &-close {
     display: none;
+  }
+
+  &_item {
+    font-size: 1rem;
+    transition: background 200ms;
+    padding: 6px;
+
+    &:hover {
+      background: rgba($color-secondary-2-1, 1);
+    }
   }
 }
 
@@ -137,6 +139,11 @@
     @include xs-block() {
       flex-basis: 220px;
       margin-left: -230px;
+
+      & .ui_sidebar_item>p{
+        display: block;
+        opacity: 1;
+      }
     }
   }
 
