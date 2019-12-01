@@ -5,17 +5,6 @@
 
 @include reset();
 
-/* Параметры тени */
-@mixin shadow($size){
-    @if $size == smalle{
-        box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }@else if $size == middle{
-        box-shadow: 0 0 7px rgba(0,0,0,0.2);
-    }@else if $size == big {
-        box-shadow: 0 0 9px rgba(0,0,0,0.4);
-    }
-}
-
 *{
     font-family: Roboto, sans-serif;
     font-size: 16px;
@@ -68,10 +57,24 @@ body{
     width: 4px !important;
 }
 
+.ui_sidebar_content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    & .ui_content {
+        flex-grow: 1;
+        @include xs-block() {
+            flex-basis: 100%;
+            flex-shrink: 0;
+        }
+    }
+}
+
 //Подключение стилей компонентов
-@import "Button";
-@import "Navigation";
 @import "Card";
+@import "NotFound";
+
 
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Scrollbar from "react-scrollbars-custom";
-import Button from "../components/Button";
+import Button from "../../components/Button/Button";
 
 function UiKit(props) {
     return <div className="ui_card">

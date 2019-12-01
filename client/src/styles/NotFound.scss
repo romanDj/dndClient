@@ -1,0 +1,24 @@
+.ui_notfound {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  text-align: center;
+
+  &>div>*{
+    margin-bottom: 5px;
+  }
+
+  & h2{
+    font-size: 1.7rem;
+  }
+
+  & a{
+    font-size: 1.3rem;
+    color: $color-secondary-2-0;
+  }
+
+}

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{"zpb+":function(n,e,t){"use strict";t.r(e);var u=t("q1tI"),a=t.n(u);e.default=function(n){return a.a.createElement("div",null,"Галлерея персонажей")}}}]);

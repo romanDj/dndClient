@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{TFRo:function(n,e,t){"use strict";t.r(e);var o=t("q1tI"),u=t.n(o);e.default=function(n){return u.a.createElement("div",null,"Магические предметы")}}}]);

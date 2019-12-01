@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{i2uR:function(n,e,t){"use strict";t.r(e);var u=t("q1tI"),i=t.n(u);e.default=function(n){return i.a.createElement("div",null,"Заклинания")}}}]);

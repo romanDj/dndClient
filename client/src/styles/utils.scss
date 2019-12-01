@@ -9,6 +9,17 @@ $break_xs: 560px;
   }
 }
 
+/* Параметры тени */
+@mixin shadow($size){
+    @if $size == smalle{
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }@else if $size == middle{
+        box-shadow: 0 0 7px rgba(0,0,0,0.2);
+    }@else if $size == big {
+        box-shadow: 0 0 9px rgba(0,0,0,0.4);
+    }
+}
+
 @mixin lg($name, $value){
     @media screen and (max-width: $break_lg){
         #{$name}: $value;

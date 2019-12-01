@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import {ConnectedRouter} from "connected-react-router";
 import {history, store} from "./store/store";
-import App from "./components/App";
+import App from "./App";
 
 /**
  * Входная точка, регистрация хранилища и роутера

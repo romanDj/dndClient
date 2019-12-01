@@ -1,4 +1,7 @@
-.ui_button{
+@import "../../styles/utils";
+@import "../../styles/Variable";
+
+.ui_button {
   @include shadow(smalle);
   border: none;
   width: auto;
@@ -8,26 +11,26 @@
   font-size: 1.1rem;
   cursor: pointer;
 
-  &-basic{
+  &-basic {
     color: white;
     background: $color-primary-0;
 
-    &:hover{
+    &:hover {
 
       background: $color-primary-1;
     }
   }
 
-  &-secondary{
+  &-secondary {
     color: white;
     background: $color-secondary-2-0;
 
-    &:hover{
+    &:hover {
       background: $color-secondary-2-1;
     }
   }
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 }

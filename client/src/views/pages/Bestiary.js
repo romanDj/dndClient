@@ -1,7 +1,7 @@
 import React from "react";
 
 function Bestiary(props) {
-    return <div>Бестиарий</div>
+    return <div>Заклинания</div>
 }
 
 export default Bestiary;
