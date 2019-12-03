@@ -13,7 +13,12 @@ export default function MainLayout({children, ...rest}) {
     return <>
         <Navbar toggleSidebar={() => setSideMenu(!sideMenu)}/>
         <div className="ui_sidebar_content">
-            <Sidebar status={sideMenu}/>
+            <Sidebar status={sideMenu}
+                     editStatus={()=>{
+                         if(window.innerWidth <= 560){
+                             setSideMenu(!sideMenu);
+                         }
+                     }}/>
             <div className="ui_content">
                 <div className="ui_card">
                     <Scrollbar>

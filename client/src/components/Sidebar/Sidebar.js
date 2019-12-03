@@ -42,8 +42,8 @@ const items = [
     }
 ];
 
-function Sidebar({status}) {
-    return <div className={status ? "ui_sidebar" : "ui_sidebar ui_sidebar-close"}>
+function Sidebar({status, editStatus}) {
+    return <div className={status ? "ui_sidebar" : "ui_sidebar ui_sidebar-close"} onClick={editStatus}>
         {items.map((item, index) => <SidebarItem key={index} route={item}/>)}
     </div>
 }

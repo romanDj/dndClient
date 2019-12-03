@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/gzip"
 	_ "github.com/jinzhu/gorm"
 	"github.com/romanDj/dndClient/common"
 	"go.mongodb.org/mongo-driver/bson"
@@ -112,6 +113,7 @@ func ReturnAllUsers(client *mongo.Client, filter bson.M) []*User {
 func routerHandler() http.Handler {
 	e := gin.Default()
 	e.Use(gin.Recovery())
+	e.Use(gzip.Gzip(gzip.DefaultCompression))
 
 	//rest service
 	//здесь нужно будет настроить дочерние роуты
