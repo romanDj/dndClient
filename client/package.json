@@ -4,9 +4,9 @@
   "description": "this is webpack template for own project",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development",
-    "start": "webpack-dev-server --mode development --open --hot --history-api-fallback  --stdin"
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development",
+    "start": "webpack-dev-server --mode=development --open --hot --history-api-fallback  --stdin"
   },
   "author": "Mahalov Roman",
   "license": "ISC",
